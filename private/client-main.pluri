@@ -1,0 +1,50 @@
+"Client: style" {
+    #example-root {padding:2rem}
+    .bold {font-weight: bold}
+}
+
+"Client: jsx" {
+    
+    /* This is your root element for React. Feel free to edit it and see the
+    changes live on the right side!
+    
+    Always keep at least a tab or 4 spaces inside this block for proper
+    indentation or your code will not run.
+    
+    If you ever have trouble while editing code, please open the developer 
+    console for more messages 
+
+    Thanks for trying out LiveDev Alpha Version!
+
+    */
+    
+    class App extends React.Component {
+      render() {
+        return (
+            <div id="example-root">
+            	Hello World! <br/>
+            	This is a simple example page for LiveDev written using jsx. <br/>
+            	Open your console and type <span className="bold"> Meteor.loginWithPassword('admin','admin') </span> to enable the editor<br/><br/>
+            	Useful shortcuts: <br/>
+            	"control + O" toggles the editor <br/>
+            	"control + U/I" resizes the editor/execution
+            </div>
+        );
+      }
+    }  
+    
+    ReactDOM.render(
+      <App/>, 
+      document.getElementById('main-run')
+    );
+}
+
+"javascript" {
+    
+    /* This is just a listener to force the view to unmount React components
+    after the code is updated */
+    
+    pluri.onProgramStopped(function(){
+        ReactDOMAPI.unmountComponentAtNode(document.getElementById('main-run'));
+    })
+}

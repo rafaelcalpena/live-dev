@@ -1,0 +1,27 @@
+"javascript" {
+    
+    /* This is a wrapper for styles.
+    You probably won't have to edit this too much
+    */
+    
+    var sheet = (function() { 
+        // Create the <style> tag
+        var style = document.createElement("style");
+        
+        style.setAttribute('data-style-id', 'customStyle')
+    
+        // WebKit hack :(
+        style.appendChild(document.createTextNode(input));
+    
+        // Add the <style> element to the page
+        document.head.appendChild(style);
+    
+        return style.sheet;
+    })();
+    
+    pluri.onProgramStopped(function(){
+        $("[data-style-id='customStyle']").remove();    
+    });
+    
+    this.done(response);
+}

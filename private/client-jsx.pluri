@@ -1,0 +1,10 @@
+"javascript" {
+    
+    /* This is a wrapper for the jsx transpiler.
+    You probably won't have to edit this too much */
+    
+    var output = jsGlobals.Babel.transform(input, { presets: ['es2015', 'react'] }).code;
+    var f = new Function('React','ReactDOM','createContainer', output);
+    f(jsGlobals.React, jsGlobals.ReactDOM, jsGlobals.createContainer);
+    this.done(response);
+}
